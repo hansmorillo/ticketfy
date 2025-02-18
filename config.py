@@ -1,5 +1,0 @@
-# THIS FILE STORES CONFIGURATION SETTINGS
-# STORES IMPT SETTINGS SUCH AS:
-# Secret key
-# Database file paths
-# Debug mode
