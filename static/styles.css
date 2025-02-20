@@ -1,0 +1,55 @@
+/* BASE CSS FILE TO BE APPLIED TO BASE.HTML*/
+
+/* HEADER PROPERTIES*/
+
+/* body padding set to 72px to account for fixed navbar */
+body {
+    padding-top: 72px; 
+}
+
+/* navbar transition effects */
+.navbar .nav-link, .navbar .dropdown-toggle { /*all navbar links are targeted here*/
+    position: relative; /* ensures that child elements like the underline can be positioned absolutely to this element */
+    color: #fff; /*makes text colour white */
+    opacity: 0.7; /*makes text slightly faded at 70% opacity */
+    transition: opacity 0.3s ease-in-out; /* when hovered, the opacity change will happen over 0.3s, making it smooth*/
+}
+
+.navbar .nav-link:hover, .navbar .dropdown-toggle:hover {
+    opacity: 1; /* when hovered, text opacity changes to 1 and link is 'highlighted' */
+}
+
+.navbar .nav-link::after{ /*green underline effect for navbar links */
+    content: ""; /*required for ::after to work, no visible text is needed */
+    position: absolute; /*positions the underline relative to the link itself*/
+    left: 0; /*ensures that the underline transition starts from left to right (full-width) */
+    bottom: -3px; /*moves the underline slightly below the text*/
+    width: 0; /*initially, the underline is not visible, set to 0% width*/
+    height: 2px; /*sets the height of the underline to 3px*/
+    background-color: #00FF87; /*sets underline colour to lime green*/
+    transition: width 0.3s ease-in-out; /*underline will expand smoothly when hovered over 0.3s, same as opacity*/
+}
+
+/* this call is the same as the above */
+.navbar .dropdown-toggle span::after { 
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    bottom: -11px; /*moves the underline 11ps below, as span is needed to override bootstrap 5 models*/
+    height: 2px;
+    background-color: #00FF87;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover::after, .navbar .dropdown-toggle:hover span::after {
+    width: 100%; /*when a user hovers over a navbar link, width expands to 100% */
+}
+
+.navbar .dropdown-toggle::after {
+    display: none !important; /*hides the automatically added caret, using !important css rule*/
+}
+
+.navbar .dropdown-toggle span {
+    position: relative; /*makes the underline position itself correctly*/
+}
