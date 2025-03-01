@@ -19,7 +19,9 @@ def landing():
 def contactUs():
     return render_template('loggedout/contactUs.html')
 
-
+@app.route('/home')
+def home():
+    return render_template('loggedin/home.html')
 
 
 
